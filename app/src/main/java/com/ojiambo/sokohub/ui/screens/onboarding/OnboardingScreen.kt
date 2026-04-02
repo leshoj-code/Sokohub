@@ -39,8 +39,6 @@ fun OnboardingScreen(){
             painter = painterResource(R.drawable.product),
             contentDescription = "product",
             modifier = Modifier.size(300.dp)
-
-
         )
 
         Spacer(modifier = Modifier.height(20.dp))
