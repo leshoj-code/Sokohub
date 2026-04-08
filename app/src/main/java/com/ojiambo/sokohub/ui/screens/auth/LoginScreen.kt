@@ -36,11 +36,13 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.ojiambo.sokohub.R
 import com.ojiambo.sokohub.ui.theme.Burgundy
 
 @Composable
-fun LoginScreen(){
+fun LoginScreen(navController: NavController){
 
     Column(
         modifier = Modifier
@@ -127,5 +129,5 @@ fun LoginScreen(){
 @Preview(showBackground = true)
 @Composable
 fun LoginScreenPreview(){
-    LoginScreen()
+    LoginScreen(rememberNavController())
 }

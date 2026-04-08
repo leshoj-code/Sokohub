@@ -23,11 +23,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.ojiambo.sokohub.R
 import com.ojiambo.sokohub.ui.theme.Burgundy
 
 @Composable
-fun OnboardingScreen(){
+fun OnboardingScreen(navController: NavController){
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -82,5 +84,5 @@ fun OnboardingScreen(){
 @Preview(showBackground = true)
 @Composable
 fun OnboardingScreenPreview(){
-    OnboardingScreen()
+    OnboardingScreen(rememberNavController())
 }
