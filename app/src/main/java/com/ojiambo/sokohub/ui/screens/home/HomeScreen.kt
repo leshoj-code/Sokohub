@@ -47,6 +47,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.ojiambo.sokohub.R
+import com.ojiambo.sokohub.navigation.ROUT_INTENT
 import com.ojiambo.sokohub.ui.theme.Burgundy
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -138,7 +139,7 @@ fun HomeScreen(navController: NavController){
                 )
 
                 Button(
-                    onClick = { },
+                    onClick = { navController.navigate(ROUT_INTENT)},
                     colors = ButtonDefaults.buttonColors(Burgundy),
                     shape = RoundedCornerShape(10.dp),
                     modifier = Modifier.padding(start = 15.dp)
