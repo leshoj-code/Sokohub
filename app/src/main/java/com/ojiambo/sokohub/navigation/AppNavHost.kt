@@ -12,13 +12,15 @@ import com.ojiambo.sokohub.ui.screens.auth.RegisterScreen
 import com.ojiambo.sokohub.ui.screens.home.HomeScreen
 import com.ojiambo.sokohub.ui.screens.intent.IntentScreen
 import com.ojiambo.sokohub.ui.screens.onboarding.OnboardingScreen
+import com.ojiambo.sokohub.ui.screens.scaffold.ScaffoldScreen
 import com.ojiambo.sokohub.ui.screens.service.ServiceScreen
+import com.ojiambo.sokohub.ui.screens.splash.SplashScreen
 
 @Composable
 fun AppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = ROUT_ONBOARDING
+    startDestination: String = ROUT_SPLASH
 ) {
 
     NavHost(
@@ -46,6 +48,12 @@ fun AppNavHost(
         }
         composable(ROUT_INTENT) {
             IntentScreen(navController)
+        }
+        composable(ROUT_SPLASH) {
+            SplashScreen(navController)
+        }
+        composable(ROUT_SCAFFOLD) {
+            ScaffoldScreen(navController)
         }
 
     }

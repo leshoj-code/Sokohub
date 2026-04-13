@@ -52,7 +52,7 @@ fun OnboardingScreen(navController: NavController){
             fontSize = 30.sp,
             fontWeight = FontWeight.ExtraBold,
             fontFamily = FontFamily.SansSerif,
-            color = Color.Red
+            color = Burgundy
         )
 
         Text(
