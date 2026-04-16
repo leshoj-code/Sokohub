@@ -84,6 +84,7 @@ fun BusinessCard(
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween
+
             ) {
 
                 Column {
@@ -91,11 +92,13 @@ fun BusinessCard(
                         text = name,
                         fontSize = 20.sp,
                         fontWeight = FontWeight.Bold,
-                        color = Color.White
+                        color = Color.White,
+                        lineHeight = 22.sp
                     )
                     Text(
                         text = role,
                         color = Color.White
+
                     )
                 }
 
@@ -109,7 +112,7 @@ fun BusinessCard(
                 }
             }
 
-            Spacer(modifier = Modifier.height(12.dp))
+            Spacer(modifier = Modifier.height(2.dp))
 
             // Phone Row
             Row(verticalAlignment = Alignment.CenterVertically) {
