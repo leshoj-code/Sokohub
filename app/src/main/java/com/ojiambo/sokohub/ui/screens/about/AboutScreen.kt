@@ -1,5 +1,6 @@
 package com.ojiambo.sokohub.ui.screens.about
 
+import android.R.attr.data
 import android.content.Intent
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -12,26 +13,18 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Call
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Notifications
-import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FabPosition
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.NavigationBar
-import androidx.compose.material3.NavigationBarItem
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -52,9 +45,6 @@ import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.ojiambo.sokohub.navigation.ROUT_HOME
-import com.ojiambo.sokohub.navigation.ROUT_INTENT
-import com.ojiambo.sokohub.navigation.ROUT_LOGIN
 import com.ojiambo.sokohub.ui.theme.Burgundy
 
 
@@ -90,14 +80,15 @@ fun BusinessCard(
                 Column {
                     Text(
                         text = name,
-                        fontSize = 20.sp,
+                        fontSize = 30.sp,
                         fontWeight = FontWeight.Bold,
                         color = Color.White,
                         lineHeight = 22.sp
                     )
                     Text(
                         text = role,
-                        color = Color.White
+                        color = Color.White,
+                        fontSize = 20.sp,
 
                     )
                 }
@@ -120,14 +111,14 @@ fun BusinessCard(
                 IconButton(
                     onClick = {
                         val callIntent= Intent(Intent.ACTION_DIAL)
-                        callIntent.data="tel:0762876015".toUri()
+                        callIntent.data = "tel:$phone".toUri()
                         context.startActivity(callIntent)
                     }
                 ) {
                     Icon(Icons.Default.Call, contentDescription = "Call", tint = Color.White)
                 }
 
-                Text(text = phone, color = Color.White)
+                Text(text = phone, color = Color.White, fontSize = 15.sp)
             }
 
             // Email Row
@@ -137,7 +128,7 @@ fun BusinessCard(
                     onClick = {
                         val shareIntent = Intent(Intent.ACTION_SEND)
                         shareIntent.type = "text/plain"
-                        shareIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf("leshyoj@gmail.com"))
+                        shareIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf(email))
                         shareIntent.putExtra(Intent.EXTRA_SUBJECT, "subject")
                         shareIntent.putExtra(Intent.EXTRA_TEXT, "Hello, this is the email body")
                         context.startActivity(shareIntent)
@@ -146,7 +137,7 @@ fun BusinessCard(
                     Icon(Icons.Default.Email, contentDescription = "Share", tint = Color.White)
                 }
 
-                Text(text = email, color = Color.White)
+                Text(text = email, color = Color.White, fontSize = 15.sp)
             }
         }
     }
@@ -193,11 +184,13 @@ fun AboutScreen(navController: NavController){
         floatingActionButton = {
             FloatingActionButton(
                 onClick = { /* Add action */ },
-                containerColor = Burgundy
+                containerColor = Burgundy,
             ) {
                 Icon(Icons.Default.Add, contentDescription = "Add", tint = Color.White)
             }
         },
+        floatingActionButtonPosition = FabPosition.Center,
+
         content = { paddingValues ->
             Column(
                 modifier = Modifier
