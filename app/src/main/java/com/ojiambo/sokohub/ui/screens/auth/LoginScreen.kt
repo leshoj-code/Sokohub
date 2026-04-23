@@ -42,7 +42,6 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.ojiambo.sokohub.R
 import com.ojiambo.sokohub.data.AuthViewModel
-import com.ojiambo.sokohub.navigation.ROUT_HOME
 import com.ojiambo.sokohub.navigation.ROUT_REGISTER
 import com.ojiambo.sokohub.ui.theme.Burgundy
 
